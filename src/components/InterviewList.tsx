@@ -164,7 +164,7 @@ export default function InterviewList() {
   const handleCancelInterview = async (interview: InterviewItem & { _id: string }) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/companies/${interview.company}/interviews/${interview._id}`,
+        `${process.env.BACKEND_URL}/api/v1/companies/${interview.company}/interviews/${interview._id}`,
         {
           method: "DELETE",
           headers: {
@@ -202,7 +202,7 @@ export default function InterviewList() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/companies/${editingInterview.company}/interviews/${editingInterview._id}`,
+        `${process.env.BACKEND_URL}/api/v1/companies/${editingInterview.company}/interviews/${editingInterview._id}`,
         {
           method: "PUT",
           headers: {
