@@ -9,7 +9,7 @@ import DateInterview from "@/components/DateInterview";
 import { toast, Toaster } from "react-hot-toast";
 
 export default function BookInterviewPage() {
-  const [company, setCompany] = useState("");
+  const [company, setCompany] = useState<{ _id?: string; id?: string } | string>("");
   const [interviewDate, setInterviewDate] = useState<Date | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { data: session, status } = useSession();
@@ -29,6 +29,10 @@ export default function BookInterviewPage() {
       toast.error("Please select both company and interview date");
       return;
     }
+    const companyId = typeof company === "object" ? company._id ?? company.id : company;
+  
+    console.log("Company value:", company); // Debug what's being received
+    console.log("Using company ID:", companyId); // Debug what's being used
 
     setIsSubmitting(true);
     
@@ -41,7 +45,7 @@ export default function BookInterviewPage() {
       };
       
       // Make API request to create interview
-      const response = await fetch(`${process.env.BACKEND_URL}/api/v1/companies/${company}/interviews`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/api/v1/companies/${companyId}/interviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -69,8 +73,8 @@ export default function BookInterviewPage() {
       }, 2000);
       
     } catch (error) {
-      console.error("Error booking interview:", error);
-      toast.error((error as Error).message || "Failed to book interview");
+      console.error("Error appointing interview:", error);
+      toast.error((error as Error).message || "Failed to appoint interview");
     } finally {
       setIsSubmitting(false);
     }
