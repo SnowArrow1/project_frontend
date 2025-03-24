@@ -28,7 +28,7 @@ const Banner = () => {
   };
   
   // ฟังก์ชันสำหรับนำทางไปยังหน้า venue เมื่อคลิกปุ่ม
-  const handleSelectVenueClick = (e: React.MouseEvent) => {
+  const handleSelectCompanyClick = (e: React.MouseEvent) => {
     e.stopPropagation();
     router.push('/company');
   };
@@ -41,7 +41,7 @@ const Banner = () => {
       <div  style={{ position: 'relative', width: '100%', height: '100%' }}>
         <Image 
           src={bannerImages[currentImageIndex]}
-          alt="Event Venue Banner" 
+          alt="Company Banner" 
           className={styles.bannerImage}
           fill
           priority
@@ -67,8 +67,8 @@ const Banner = () => {
       
       {/* ปุ่ม Select Venue ที่มุมขวาล่าง */}
       <button 
-        onClick={handleSelectVenueClick}
-        className={styles.selectVenueButton || "absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition duration-300"}
+        onClick={handleSelectCompanyClick}
+        className={styles.selectCompanyButton || "absolute bottom-4 right-4 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md shadow-md transition duration-300"}
       >
         Explore Company
       </button>
