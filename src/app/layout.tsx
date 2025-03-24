@@ -10,8 +10,8 @@ import ReduxProvider from "@/redux/ReduxProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Venue Booking",
-  description: "Find your perfect venue for any event",
+  title: "Online Job Fair",
+  description: "explore job opportunities and potential employers",
 };
 
 export default async function RootLayout({
