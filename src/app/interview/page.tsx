@@ -41,7 +41,7 @@ export default function BookInterviewPage() {
       };
       
       // Make API request to create interview
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/v1/companies/${company}/interviews`, {
+      const response = await fetch(`${process.env.BACKEND_URL}/api/v1/companies/${company}/interviews`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ export default function BookInterviewPage() {
         <div className="md:flex">
           <div className="p-8 w-full">
             <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold mb-1">Career Opportunity</div>
-            <h1 className="block mt-1 text-2xl leading-tight font-bold text-black mb-6">Appoint an Interview</h1>
+            <h1 className="block mt-1 text-2xl leading-tight font-bold text-black mb-6">Appoint an Interview (Up to 3 Interviews)</h1>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <DateInterview 
