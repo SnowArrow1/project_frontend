@@ -439,9 +439,9 @@ export default function InterviewList() {
               <p className="mb-2 text-gray-700">
                 Company: {editingInterview ? companies[editingInterview.company]?.name : ""}
               </p>
-              <p className="mb-2 text-gray-700">
+              {/* <p className="mb-2 text-gray-700">
                 User: {userData?.email || "Unknown User"}
-              </p>
+              </p> */}
               <p className="mb-4 text-gray-700">
                 Current Date: {editingInterview ? formatDate(editingInterview.interviewDate) : ""}
               </p>
